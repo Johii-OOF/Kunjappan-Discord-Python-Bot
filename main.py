@@ -10,7 +10,6 @@ import json
 from discord import Game
 
 
-
 client = commands.Bot(command_prefix="da ", intents=discord.Intents.all())
     
 
@@ -31,7 +30,7 @@ async def on_ready():
 async def ch_pr():
   await client.wait_until_ready()
 
-  statuses = ["Cyberpunk 2077","with ur mum",f"on {len(client.guilds)} servers | ana help","Sigma Songs","with no one","mods","Amongus","uyir lyf"]
+  statuses = ["Cyberpunk 2077","with ur mum",f"on {len(client.guilds)} servers | da help","Sigma Songs","with no one","mods","Amongus","uyir lyf","Elden Ring"]
 
   while not client.is_closed():
 
@@ -71,10 +70,10 @@ async def snipe(ctx):
     channel = ctx.channel
     try: 
         em = discord.Embed(name = f"Last deleted message in #{channel.name}", description = snipe_message_content[channel.id])
-        em.set_footer(text = f"This message was sent by {snipe_message_author[channel.id]}")
+        em.set_footer(text = f"That andi message was sent by {snipe_message_author[channel.id]}, nee menden anallo")
         await ctx.send(embed = em)
     except KeyError: 
-        await ctx.send(f"fuck off, No deleted messages found in #{channel.name} <a:NoOoOo:907224828652707900> epic fail L 👎")
+        await ctx.send(f"fuck off, No deleted messages found in #{channel.name} <a:NoOoOo:907224828652707900> epic fail L 👎" ,delete_after=3)
 
 
 
@@ -207,7 +206,7 @@ async def serverinfo(ctx):
 
 
 #avatar
-@client.command(name='avatar', help='Shows the avatar of the user')
+@client.command(aliases=['av'], name='avatar', help='Shows the avatar of the user')
 @commands.cooldown(1, 60, commands.BucketType.user)
 async def avatar(ctx, member: discord.Member = None):
     if member == None:
@@ -318,7 +317,7 @@ async def meme(ctx):
     async with aiohttp.ClientSession() as cs:
         async with cs.get('https://www.reddit.com/r/memes/hot.json') as r:
             res = await r.json()
-            title = ("annan gives you a cat photo")
+            title = ("here is a meme")
             url = res['data']['children'][random.randint(0, 25)]["data"]["url"]
             embed = discord.Embed(title=f'{title}',
                                   color=discord.Color.orange(),
@@ -354,7 +353,7 @@ async def dog(ctx):
     async with aiohttp.ClientSession() as cs:
         async with cs.get('https://www.reddit.com/r/dog/hot.json') as r:
             res = await r.json()
-            title = ("jason gives you a doggo photo")
+            title = ("annan gives you a doggo photo")
             url = res['data']['children'][random.randint(0, 25)]["data"]["url"]
             embed = discord.Embed(title=f'{title}',
                                   color=discord.Color.orange(),
@@ -671,21 +670,13 @@ async def maskoff(ctx):
   await message.edit(content="<a:therock:933744399484071946>")
 
 
-
 @client.command()
-@commands.cooldown(1, 1000, commands.BucketType.user)
-async def vada(ctx):
+async def join(ctx):
     channel = ctx.author.voice.channel
     await channel.connect()
-    await ctx.reply("ada patti")
 @client.command()
-@commands.cooldown(1, 1000, commands.BucketType.user)
-async def poda(ctx):
+async def leave(ctx):
     await ctx.voice_client.disconnect()
-    await ctx.reply("njn ponu")
-
-
-
 
 
 
@@ -705,8 +696,8 @@ async def poda(ctx):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
-        msg = '**Slow down bro**, please try after {:.2f}s, <a:NotFunnyBlink:906927061296349196> ||<a:uh:906917859899367464> ur so stupid <a:uh:906917859899367464>||'.format(error.retry_after)
-        await ctx.send(msg)
+        msg = '**മൈരേ നിർത്തിക്കോ**, try after {:.2f}s, <a:NotFunnyBlink:906927061296349196> ||<a:uh:906917859899367464> you are annoying <a:uh:906917859899367464>||'.format(error.retry_after)
+        await ctx.reply(msg)
 
 
 
