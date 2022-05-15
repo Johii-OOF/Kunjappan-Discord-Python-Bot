@@ -1,2 +1,2 @@
 # Annan-Discord-Python-Bot
-best bot ever
+>*best bot ever*

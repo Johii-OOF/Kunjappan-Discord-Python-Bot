@@ -70,7 +70,7 @@ async def snipe(ctx):
     channel = ctx.channel
     try: 
         em = discord.Embed(name = f"Last deleted message in #{channel.name}", description = snipe_message_content[channel.id])
-        em.set_footer(text = f"That andi message was sent by {snipe_message_author[channel.id]}, nee menden anallo")
+        em.set_footer(text = f"That message was sent by {snipe_message_author[channel.id]}, nee menden anallo")
         await ctx.send(embed = em)
     except KeyError: 
         await ctx.send(f"fuck off, No deleted messages found in #{channel.name} <a:NoOoOo:907224828652707900> epic fail L 👎" ,delete_after=3)
@@ -91,7 +91,7 @@ async def say(ctx, *, saymsg=None):
     if saymsg == None:
         return await ctx.send("Just use, da say (your text)")
 
-    sayEmbed = discord.Embed(title="Jonly Annan said,",
+    sayEmbed = discord.Embed(title="Kunjappan said,",
                              color=discord.Color.blue(),
                              description=f"{saymsg}")
     sayEmbed.timestamp = ctx.message.created_at
@@ -157,7 +157,7 @@ async def news(ctx):
     await ctx.send("https://youtu.be/zcrUCvBD16k", delete_after=10)
 
 
-@client.command(name='ping',help='This command returns the latency of the bot')
+@client.command(name='ping',help='latency of the bot')
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def ping(ctx):
     await ctx.send(
@@ -215,7 +215,7 @@ async def avatar(ctx, member: discord.Member = None):
     icon_url = member.avatar_url
 
     avatarEmbed = discord.Embed(
-        title=f"AMBO ithu kando {member.name}\'s Avatar, killadi thanne",
+        title=f"AMBO ithu kando {member.name}\'s Avatar, killadi!!",
         color=0xFFFFFF)
 
     avatarEmbed.set_image(url=f"{icon_url}")
@@ -294,9 +294,7 @@ async def _8ball(ctx, *, question):
 async def wishgn(ctx):
     responses = [
         '<a:uh:906917859899367464>', 'gn homie',
-        'sleep tight, demons might be under your bed', 'onnu povamo?', 'bruh',
-        'gn girl'
-    ]
+        'sleep tight, demons might be under your bed', 'onnu povamo?', 'bruh','gn girl','umma']
     await ctx.reply(random.choice(responses), mention_author=False)
 
 
@@ -311,7 +309,7 @@ async def wishgn(ctx):
 
 
 
-@client.command(name='meme', help='pulls up a cat')
+@client.command(name='meme', help='pulls up a meme')
 @commands.cooldown(1, 30, commands.BucketType.user)
 async def meme(ctx):
     async with aiohttp.ClientSession() as cs:
@@ -337,7 +335,7 @@ async def cat(ctx):
     async with aiohttp.ClientSession() as cs:
         async with cs.get('https://www.reddit.com/r/cat/hot.json') as r:
             res = await r.json()
-            title = ("jason gives you a cat photo")
+            title = ("Kunjappan gives you a cat photo")
             url = res['data']['children'][random.randint(0, 25)]["data"]["url"]
             embed = discord.Embed(title=f'{title}',
                                   color=discord.Color.orange(),
@@ -353,7 +351,7 @@ async def dog(ctx):
     async with aiohttp.ClientSession() as cs:
         async with cs.get('https://www.reddit.com/r/dog/hot.json') as r:
             res = await r.json()
-            title = ("annan gives you a doggo photo")
+            title = ("Kunjappan gives you a doggo photo")
             url = res['data']['children'][random.randint(0, 25)]["data"]["url"]
             embed = discord.Embed(title=f'{title}',
                                   color=discord.Color.orange(),
@@ -696,7 +694,7 @@ async def leave(ctx):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
-        msg = '**മൈരേ നിർത്തിക്കോ**, try after {:.2f}s, <a:NotFunnyBlink:906927061296349196> ||<a:uh:906917859899367464> you are annoying <a:uh:906917859899367464>||'.format(error.retry_after)
+        msg = 'Enich podey, try after {:.2f}s, <a:NotFunnyBlink:906927061296349196> ||<a:uh:906917859899367464> you are annoying <a:uh:906917859899367464>||'.format(error.retry_after)
         await ctx.reply(msg)
 
 
